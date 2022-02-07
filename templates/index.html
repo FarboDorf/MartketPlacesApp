@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="../static/images/123.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <title>Обмен данными с маркетплейсами</title>
+</head>
+<body>
+    <div class="row row-cols-2">
+        <!-- WB -->
+        <div class="col">
+            <div class="card">
+                <img src="../static/images/wildberries.png" class="card-img-top" alt="WB">
+                <div class="card-body">
+                    <table class="table table-sm">
+                <!-- Fortuna -->
+                        <caption class="text-center text-dark fs-4" align="top">Фортуна</caption>
+                    <!-- supply info -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkSupplyInfoWBFortuna" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">Состояние поставки</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="supplyInfoDateTimeWBFortuna"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="supplyInfoStatusWBFortuna" disabled>
+                                <div class="invalid-feedback" id="supplyInfoFeedBackWBFortuna"></div>
+                            </td>
+                        </tr>
+                    <!-- orders -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkOrdersWBFortuna" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Zcy;&acy;&gcy;&rcy;&ucy;&zcy;&kcy;&acy; &zcy;&acy;&kcy;&acy;&zcy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="ordersDateTimeWBFortuna"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="ordersStatusWBFortuna" disabled>
+                                <div class="invalid-feedback" id="ordersFeedBackWBFortuna"></div>
+                            </td>
+                        </tr>
+                        <!-- status -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkOrdStatusWBFortuna" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Ocy;&bcy;&ncy;&ocy;&vcy;&lcy;&iecy;&ncy;&icy;&iecy; &scy;&tcy;&acy;&tcy;&ucy;&scy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="ordStatusDateTimeWBFortuna"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="ordStatusStatusWBFortuna" disabled>
+                                <div class="invalid-feedback" id="ordStatusFeedBackWBFortuna"></div>
+                            </td>
+                        </tr>
+                       <!-- supplies -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkSuppliesWBFortuna" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">Добавление к поставке №</label>
+                                    <input class="" id="supplyIdFortuna" disabled readonly>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="suppliesDateTimeWBFortuna"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="suppliesStatusWBFortuna" disabled>
+                                <div class="invalid-feedback" id="suppliesFeedBackWBFortuna"></div>
+                            </td>
+                        </tr>
+                       <!-- stocks -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkStocksWBFortuna" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Ocy;&bcy;&ncy;&ocy;&vcy;&lcy;&iecy;&ncy;&icy;&iecy; &ocy;&scy;&tcy;&acy;&tcy;&kcy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="stocksDateTimeWBFortuna"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="stocksStatusWBFortuna" disabled>
+                                <div class="invalid-feedback" id="stocksFeedBackWBFortuna"></div>
+                            </td>
+                        </tr>
+                        <!-- stickers -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkStickersWBFortuna" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">Сохранение этикеток</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="stickersDateTimeWBFortuna"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="stickersStatusWBFortuna" disabled>
+                                <div class="invalid-feedback" id="stickersFeedBackWBFortuna"></div>
+                            </td>
+                        </tr>
+                        <!-- supply barcode -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkSupplyBCWBFortuna" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">Сохранение ШК поставки</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="supplyBCDateTimeWBFortuna"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="supplyBCStatusWBFortuna" disabled>
+                                <div class="invalid-feedback" id="supplyBCFeedBackWBFortuna"></div>
+                            </td>
+                        </tr>
+                    </table>
+                <!-- Progress -->
+                    <table class="table table-sm">
+                        <caption class="text-center text-dark fs-4" align="top">Прогресс</caption>
+                    <!-- supply info -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkSupplyInfoWBProgress" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">Состояние поставки</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="supplyInfoDateTimeWBProgress"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="supplyInfoStatusWBProgress" disabled>
+                                <div class="invalid-feedback" id="supplyInfoFeedBackWBProgress"></div>
+                            </td>
+                        </tr>
+                    <!-- orders -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkOrdersWBProgress" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Zcy;&acy;&gcy;&rcy;&ucy;&zcy;&kcy;&acy; &zcy;&acy;&kcy;&acy;&zcy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="ordersDateTimeWBProgress"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="ordersStatusWBProgress" disabled>
+                                <div class="invalid-feedback" id="ordersFeedBackWBProgress"></div>
+                            </td>
+                        </tr>
+                        <!-- status -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkOrdStatusWBProgress" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Ocy;&bcy;&ncy;&ocy;&vcy;&lcy;&iecy;&ncy;&icy;&iecy; &scy;&tcy;&acy;&tcy;&ucy;&scy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="ordStatusDateTimeWBProgress"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="ordStatusStatusWBProgress" disabled>
+                                <div class="invalid-feedback" id="ordStatusFeedBackWBProgress"></div>
+                            </td>
+                        </tr>
+                        <!-- supplies -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkSuppliesWBProgress" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">Добавление к поставке №</label>
+                                    <input class="" id="supplyIdProgress" disabled readonly>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="suppliesDateTimeWBProgress"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="suppliesStatusWBProgress" disabled>
+                                <div class="invalid-feedback" id="suppliesFeedBackWBProgress"></div>
+                            </td>
+                        </tr>
+                       <!-- stocks -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkStocksWBProgress" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Ocy;&bcy;&ncy;&ocy;&vcy;&lcy;&iecy;&ncy;&icy;&iecy; &ocy;&scy;&tcy;&acy;&tcy;&kcy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="stocksDateTimeWBProgress"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="stocksStatusWBProgress" disabled>
+                                <div class="invalid-feedback" id="stocksFeedBackWBProgress"></div>
+                            </td>
+                        </tr>
+                        <!-- stickers -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkStickersWBProgress" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">Сохранение этикеток</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="stickersDateTimeWBProgress"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="stickersStatusWBProgress" disabled>
+                                <div class="invalid-feedback" id="stickersFeedBackWBProgress"></div>
+                            </td>
+                        </tr>
+                        <!-- supply barcode -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkSupplyBCWBProgress" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">Сохранение ШК поставки</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="supplyBCDateTimeWBProgress"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="supplyBCStatusWBProgress" disabled>
+                                <div class="invalid-feedback" id="supplyBCFeedBackWBProgress"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- OZON -->
+        <div class="col">
+            <div class="card" >
+                <img src="../static/images/ozon.jpg" class="card-img-top" alt="Ozon">
+                <div class="card-body">
+                    <table class="table table-sm">
+                <!-- Fortuna -->
+                        <caption class="text-center text-dark fs-4" align="top">Фортуна</caption>
+                        <!-- orders -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkOrdersOzonFortuna" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Zcy;&acy;&gcy;&rcy;&ucy;&zcy;&kcy;&acy; &zcy;&acy;&kcy;&acy;&zcy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="ordersDateTimeOzonFortuna"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="ordersStatusOzonFortuna" disabled>
+                                <div class="invalid-feedback" id="ordersFeedBackOzonFortuna"></div>
+                            </td>
+                        </tr>
+                       <!-- status -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkOrdStatusOzonFortuna" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Ocy;&bcy;&ncy;&ocy;&vcy;&lcy;&iecy;&ncy;&icy;&iecy; &scy;&tcy;&acy;&tcy;&ucy;&scy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="ordStatusDateTimeOzonFortuna"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="ordStatusStatusOzonFortuna" disabled>
+                                <div class="invalid-feedback" id="ordStatusFeedBackOzonFortuna"></div>
+                            </td>
+                        </tr>
+                       <!-- stocks -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkStocksOzonFortuna" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Ocy;&bcy;&ncy;&ocy;&vcy;&lcy;&iecy;&ncy;&icy;&iecy; &ocy;&scy;&tcy;&acy;&tcy;&kcy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="stocksDateTimeOzonFortuna"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="stocksStatusOzonFortuna" disabled>
+                                <div class="invalid-feedback" id="stocksFeedBackOzonFortuna"></div>
+                            </td>
+                        </tr>
+                        <!-- packageLable -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkPLOzonFortuna" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Scy;&ocy;&khcy;&rcy;&acy;&ncy;&iecy;&ncy;&icy;&iecy; &ecy;&tcy;&icy;&kcy;&iecy;&tcy;&ocy;&kcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="PLDateTimeOzonFortuna"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="PLStatusOzonFortuna" disabled>
+                                <div class="invalid-feedback" id="PLFeedBackOzonFortuna"></div>
+                            </td>
+                        </tr>
+                       <!-- Act -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkActOzonFortuna" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Scy;&ocy;&khcy;&rcy;&acy;&ncy;&iecy;&ncy;&icy;&iecy; &acy;&kcy;&tcy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <!--Main warehouse-->
+                                <table class="table table-sm table-borderless">
+                                    <tr class="align-middle">
+                                        <td class="col"><button type="button" class="btn btn-outline-info" id="downloadActFortunaMainWH">Скачать акт</button></td>
+                                        <td class="col">&Ocy;&scy;&ncy;&ocy;&vcy;&ncy;&ocy;&jcy;</td>
+                                        <td class="col-6" id="ActDateTimeOzonMainWHFortuna"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                            <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                        </svg>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <input class="form-control" id="ActStatusOzonMainWHFortuna" disabled>
+                                <div class="invalid-feedback" id="ActFeedBackOzonMainWHFortuna"></div>
+                                <!--Dist warehouse-->
+                                <table class="table mt-3 table-sm table-borderless">
+                                    <tr class="align-middle">
+                                        <td class="col"><button type="button" class="btn btn-outline-info" id="downloadActFortunaDistWH">Скачать акт</button></td>
+                                        <td class="col">&Ucy;&dcy;&acy;&lcy;&iecy;&ncy;&ncy;&ycy;&jcy;</td>
+                                        <td class="col-6" id="ActDateTimeOzonDistWHFortuna">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                                <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <input class="form-control" id="ActStatusOzonDistWHFortuna" disabled>
+                                <div class="invalid-feedback" id="ActFeedBackOzonDistWHFortuna"></div>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table table-sm">
+                <!-- Progress -->
+                        <caption class="text-center text-dark fs-4" align="top">Прогресс</caption>
+                        <!-- orders -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkOrdersOzonProgress" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Zcy;&acy;&gcy;&rcy;&ucy;&zcy;&kcy;&acy; &zcy;&acy;&kcy;&acy;&zcy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="ordersDateTimeOzonProgress"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="ordersStatusOzonProgress" disabled>
+                                <div class="invalid-feedback" id="ordersFeedBackOzonProgress"></div>
+                            </td>
+                        </tr>
+                       <!-- status -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkOrdStatusOzonProgress" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Ocy;&bcy;&ncy;&ocy;&vcy;&lcy;&iecy;&ncy;&icy;&iecy; &scy;&tcy;&acy;&tcy;&ucy;&scy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="ordStatusDateTimeOzonProgress"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="ordStatusStatusOzonProgress" disabled>
+                                <div class="invalid-feedback" id="ordStatusFeedBackOzonProgress"></div>
+                            </td>
+                        </tr>
+                       <!-- stocks -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkStocksOzonProgress" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Ocy;&bcy;&ncy;&ocy;&vcy;&lcy;&iecy;&ncy;&icy;&iecy; &ocy;&scy;&tcy;&acy;&tcy;&kcy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="stocksDateTimeOzonProgress"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="stocksStatusOzonProgress" disabled>
+                                <div class="invalid-feedback" id="stocksFeedBackOzonProgress"></div>
+                            </td>
+                        </tr>
+                        <!-- packageLable -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkPLOzonProgress" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Scy;&ocy;&khcy;&rcy;&acy;&ncy;&iecy;&ncy;&icy;&iecy; &ecy;&tcy;&icy;&kcy;&iecy;&tcy;&ocy;&kcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <p id="PLDateTimeOzonProgress"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                    <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg></p>
+                                <input class="form-control" id="PLStatusOzonProgress" disabled>
+                                <div class="invalid-feedback" id="PLFeedBackOzonProgress"></div>
+                            </td>
+                        </tr>
+                       <!-- Act -->
+                        <tr class="align-middle">
+                            <td scope="col">
+                                <div class="form-check form-switch">
+                                    <input id="checkActOzonProgress" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">&Scy;&ocy;&khcy;&rcy;&acy;&ncy;&iecy;&ncy;&icy;&iecy; &acy;&kcy;&tcy;&ocy;&vcy;</label>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <!--Main warehouse-->
+                                <table class="table table-sm table-borderless">
+                                    <tr class="align-middle">
+                                        <td class="col"><button type="button" class="btn btn-outline-info" id="downloadActProgressMainWH">Скачать акт</button></td>
+                                        <td class="col">&Ocy;&scy;&ncy;&ocy;&vcy;&ncy;&ocy;&jcy;</td>
+                                        <td class="col-6" id="ActDateTimeOzonMainWHProgress"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                            <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                        </svg>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <input class="form-control" id="ActStatusOzonMainWHProgress" disabled>
+                                <div class="invalid-feedback" id="ActFeedBackOzonMainWHProgress"></div>
+                                <!--Dist warehouse-->
+                                <table class="table mt-3 table-sm table-borderless">
+                                    <tr class="align-middle">
+                                        <td class="col"><button type="button" class="btn btn-outline-info" id="downloadActProgressDistWH">Скачать акт</button></td>
+                                        <td class="col">&Ucy;&dcy;&acy;&lcy;&iecy;&ncy;&ncy;&ycy;&jcy;</td>
+                                        <td class="col-6" id="ActDateTimeOzonDistWHProgress">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                                                <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <input class="form-control" id="ActStatusOzonDistWHProgress" disabled>
+                                <div class="invalid-feedback" id="ActFeedBackOzonDistWHProgress"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../static/js/main.js"></script>
+</body>
+</html>
