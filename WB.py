@@ -67,18 +67,6 @@ def getOrders(shop):
             break
     # save response
     try:
-        # allOrders = pd.json_normalize(res.json(), "orders")
-        # pprint(res.json())
-
-        # get stickers
-
-        # # I fast method
-        # for i in range(len(orders.index)):
-        #     barcodeASCII = base64.b64decode(orders["sticker.wbStickerSvgBase64"][i].encode('ascii'))
-        #     fileName = str(orders["sticker.wbStickerId"][i])
-        #     if not(os.path.exists(directories.WBBarcodes(shop) + fileName + ".jpg")):
-        #         saveBarcode(shop, fileName + ".svg", barcodeASCII)
-
         # II slow method (~15 minutes between get order and sticker)
         getStickersFromOrderList(shop)
 
