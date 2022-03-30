@@ -457,20 +457,6 @@ def OzonAct(shop, warehouseID):
 
 if __name__ == '__main__':
     from waitress import serve
-    # WBsupplyId()
-    WBorders()
-    # WBstatus()
-    # #
-    # # WBaddToSupply()
-    # # WBshipment()
-    # #
-    # WBstocks()
-    # WBstickers()
-    #
-    # OzonOrders()
-    # OzonStatus()
-    # OzonStocks()
-    # OzonPL()
 
     sched.add_job(WBorders,      trigger="interval", minutes=15)
     sched.add_job(WBstatus,      trigger="interval", minutes=1, seconds=30)
@@ -499,6 +485,5 @@ if __name__ == '__main__':
 
     sched.start()
 
-    app.run(host='0.0.0.0', port=8080, debug=False)
-    # serve(app, host="0.0.0.0", port=7000)
+    serve(app, host="0.0.0.0", port=7000)
 
